@@ -1,0 +1,52 @@
+/* Rainbow background */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    background-size: 400% 400%;
+    animation: rainbow 10s ease infinite;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+@keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Centering and styling the button */
+.center {
+    position: relative; /* Ensure button is positioned relative to the parent */
+    z-index: 2; /* Ensure button is above the video */
+    text-align: center;
+}
+
+.play-button {
+    font-size: 24px;
+    padding: 15px 30px;
+    border: none;
+    background-color: #fff;
+    color: #333;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.play-button:hover {
+    transform: scale(1.1);
+}
+
+/* Video styles */
+video {
+    position: absolute; /* Position video absolutely */
+    top: 0; /* Align with the top */
+    left: 0; /* Align with the left */
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    object-fit: cover; /* Cover the background */
+    z-index: 1; /* Place behind the button */
+}
